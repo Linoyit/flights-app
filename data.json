@@ -1,0 +1,146 @@
+[
+    {
+      "id": "ISR-6070",
+      "from": "Tel-Aviv",
+      "to": "Barcelona",
+      "departure": "2018-05-25 21:40",
+      "arrival": "2018-06-25 1:20",
+      "by": "El Al"
+    },
+
+    {
+        "id": "ISR-6099",
+        "from": "Barcelona",
+        "to": "Tel-Aviv",
+        "departure": "2018-02-20 21:40",
+        "arrival": "2018-03-20 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6990",
+        "from": "Tel-Aviv",
+        "to": "Rome",
+        "departure": "2018-02-21 21:40",
+        "arrival": "2018-03-28 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6032",
+        "from": "Tel-Aviv",
+        "to": "Malaga",
+        "departure": "2018-02-25 21:40",
+        "arrival": "2018-07-25 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6330",
+        "from": "Eilat",
+        "to": "Tel-Aviv",
+        "departure": "2018-04-25 21:40",
+        "arrival": "2018-08-25 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6540",
+        "from": "Tel-Aviv",
+        "to": "Hong-Kong",
+        "departure": "2018-02-22 21:40",
+        "arrival": "2018-03-29 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6090",
+        "from": "Tel-Aviv",
+        "to": "Tokyo",
+        "departure": "2018-02-25 21:40",
+        "arrival": "2018-03-25 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6091",
+        "from": "Tel-Aviv",
+        "to": "Barcelona",
+        "departure": "2020-02-25 21:40",
+        "arrival": "2020-03-25 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6092",
+        "from": "Tel-Aviv",
+        "to": "Barcelona",
+        "departure": "2019-02-25 21:40",
+        "arrival": "2019-03-25 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6490",
+        "from": "Ukraine",
+        "to": "Barcelona",
+        "departure": "2018-02-25 21:40",
+        "arrival": "2018-03-25 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6590",
+        "from": "London",
+        "to": "Barcelona",
+        "departure": "2018-02-25 21:40",
+        "arrival": "2018-03-25 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6690",
+        "from": "Tel-Aviv",
+        "to": "Philipins",
+        "departure": "2019-02-25 21:40",
+        "arrival": "2019-03-25 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6790",
+        "from": "Tel-Aviv",
+        "to": "Barcelona",
+        "departure": "2018-02-25 21:40",
+        "arrival": "2018-03-25 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6010",
+        "from": "New York",
+        "to": "Buenos Aires",
+        "departure": "2018-02-25 21:40",
+        "arrival": "2018-03-25 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6096",
+        "from": "Tel-Aviv",
+        "to": "Paris",
+        "departure": "2018-02-25 21:40",
+        "arrival": "2018-03-25 1:20",
+        "by": "El Al"
+      },
+
+      {
+        "id": "ISR-6097",
+        "from": "Rome",
+        "to": "Maldives",
+        "departure": "2018-02-25 21:40",
+        "arrival": "2018-03-25 1:20",
+        "by": "Italy airlines"
+      }
+    
+  ]
