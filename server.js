@@ -16,7 +16,7 @@ http.createServer(function (req, res) {
     suffix = getFileExtension(req.url);
     console.log(suffix);
     const file = {
-        name: 'client/',
+        name: '',
         type: ''
     }
     switch (suffix) {
