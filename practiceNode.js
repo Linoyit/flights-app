@@ -1,7 +1,7 @@
 
 const http = require('http');
 const fs = require('fs');
-
+console.log("hello");
 function getFileExtension(str) {
     let extension = '';
     let i = str.length - 1;
