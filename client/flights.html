@@ -7,9 +7,19 @@
     <title>Server Exercise</title>
     <div></div>
 </head>
-<body onload="parseJson('data.json')">
+<body>
     <ul id="output"></ul>
 
-    <script type="text/javascript" src="script.js"></script>
+    <script>
+        console.log('got script section');
+        fetch('/client/data.json')
+        .then (response =>  { 
+            console.log('got response');
+            return response.json();
+        })
+        .then ((flight) => {
+            console.log(flight);
+        })
+    </script>
 </body>
 </html>

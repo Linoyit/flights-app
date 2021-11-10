@@ -17,7 +17,7 @@ function parseJson(file) {
     })
     .then ((flight) => {
         console.log(flight);
-        showResults(flight);
+        //showResults(flight);
     })
 }
 
