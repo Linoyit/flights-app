@@ -10,18 +10,44 @@
 </head>
 <body>
     <h1>Upcoming Flights: </h1>
-    <ul >
-        <li class="title">
-            <p id="id">Fligh ID</p>
-            <p id="from">From</p>
-            <p id="to">To</p>
-            <p id="departure">Departure</p>
-            <p id="arrival">Arrival</p>
-            <p id="by">By</p>
-        </li>
-    </ul>
+    
 
-    <ul id="output"></ul>
+
+    <form>
+        <label for="From">From</label>
+        <select id="countryName" name="from">
+          <option value="">choose country</option>
+          <option value="Barcelona">Barcelona</option>
+          <option value="Paris">Paris</option>
+          <option value="Rome">Rome</option>
+          <option value="Maldives">Maldives</option>
+          <option value="Tel-Aviv">Tel-Aviv</option>
+        </select>
+
+        <label for="To">To</label>
+        <select id="countryNameTo" name="to">
+          <option value="">choose country</option>
+          <option value="Barcelona">Barcelona</option>
+          <option value="Paris">Paris</option>
+          <option value="Rome">Rome</option>
+          <option value="Maldives">Maldives</option>
+          <option value="Tel-Aviv">Tel-Aviv</option>
+        </select>
+        <button>search</button>
+      </form>
+
+      <div>
+        <div id="title">
+            <div class="grid-item" id="id">Fligh ID</div>
+            <div class="grid-item" id="from">From</div>
+            <div class="grid-item" id="to">To</div>
+            <div class="grid-item" id="departure">Departure</div>
+            <div class="grid-item" id="arrival">Arrival</div>
+            <div class="grid-item" id="by">By</div>
+        </div>
+    </div>
+
+    <div id="output"></div>
 
     <script>
         console.log('got script section');
@@ -40,16 +66,16 @@
             let output = document.querySelector('#output');
  
             const template = flights.map(flight => `
-            <li>
+            <div>
                 <div class="flight">
-                    <p id="id">${flight.id}</p>
-                    <p id="from">${flight.from}</p>
-                    <p id="to">${flight.to}</p>
-                    <p id="departure">${flight.departure}</p>
-                    <p id="arrival">${flight.arrival}</p>
-                    <p id="by">${flight.by}</p>
+                    <div class="grid-item" id="id">${flight.id}</div>
+                    <div class="grid-item" id="from">${flight.from}</div>
+                    <div class="grid-item" id="to">${flight.to}</div>
+                    <div class="grid-item" id="departure">${flight.departure}</div>
+                    <div class="grid-item" id="arrival">${flight.arrival}</div>
+                    <div class="grid-item" id="by">${flight.by}</div>
                 </div>
-            </li>
+            </div>
             `);
             output.innerHTML = template.join(' ');
         }

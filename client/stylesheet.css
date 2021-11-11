@@ -1,14 +1,31 @@
-.flight, .title{
-    display: flex;
-}
 
 h1 {
     color: red;
 }
 
-p, .title {
-    margin: 5px;
+form {
+    margin-left: 50px;
 }
-li {
-    list-style: none;
+
+label[for='To'] {
+    margin-left: 50px;
+}
+
+.flight, #title {
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px 150px 150px;
+
+}
+
+.grid-item {
+    padding: 10px;
+    background-color: #93c6f0;
+    border: 1px solid black;
+    text-align: left;
+}
+
+#title {
+    margin-top:10px;
+    font-weight: bold;
+    font-size: 16px;
 }

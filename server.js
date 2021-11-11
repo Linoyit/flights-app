@@ -16,7 +16,9 @@ function parseQuery(query) { //'from=barcelona'
     console.log('params array:', params);
     for (let i = 0; i < params.length; i++) {
         let list = params[i].split('=');
-        result.set(list[0], list[1]); // { 'from':'barcelona', 'to':'rome'...  }
+        if (list[1] !== ''){
+            result.set(list[0], list[1]); // { 'from':'barcelona', 'to':'rome'...  }
+        }
     }
     return result;
 }
@@ -82,10 +84,10 @@ function filterFlights(flights) {
     let filtered = flights;
 
     if (query.has('from')) {
-        filtered = flights.filter(flight => flight.from === query.get('from'));
+        filtered = filtered.filter(flight => flight.from === query.get('from'));
     } 
     if (query.has('to')) {
-        filtered = flights.filter(flight => flight.to === query.get('to'));
+        filtered = filtered.filter(flight => flight.to === query.get('to'));
     }
     return filtered;
 }
