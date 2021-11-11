@@ -14,10 +14,13 @@
         console.log('got script section');
         fetch('/client/data.json')
         .then (response =>  { 
+            console.log(response);
             console.log('got response');
             return response.json();
         })
         .then ((flight) => {
+            const output = document.getElementById('output');
+            output.innerHTML = flight.toString();
             console.log(flight);
         })
     </script>
