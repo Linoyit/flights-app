@@ -1,45 +1,93 @@
 
 const http = require('http');
 const fs = require('fs');
+const url = require('url');
+// console.log(__filename, module, global)
 
+let query = new Map();
+//TODO(1): how to show entire table after filtering. 
 
-console.log(__filename, module, global)
+function parseQuery(query) { //'from=barcelona'
+    let result = new Map();
+    let params = [query];
+    if (query.includes('&')) {
+        params = query.split('&'); //['from=barcelona', 'to=rome', 'by=elal']
+    }
+    console.log('params array:', params);
+    for (let i = 0; i < params.length; i++) {
+        let list = params[i].split('=');
+        result.set(list[0], list[1]); // { 'from':'barcelona', 'to':'rome'...  }
+    }
+    return result;
+}
+
+function getFileName(fileName) {
+    if (fileName.includes('?')) {
+        let arr = fileName.split('?');
+        query = parseQuery(arr[1]);
+        fileName = arr[0];
+    }
+    return fileName;
+}
 
 http.createServer(function (req, res) {
     let fileName = req.url;
+    fileName = getFileName(fileName);
     let end = checkEnd(fileName);
     let contentType = readUrl(end);
     
     if (end === 'json') {
-        fs.readFile('client/data.json', function(err, data) {
-            
-            const flights = JSON.parse(data);
-            res.writeHead(200, {'Content-Type': contentType});
-            res.write(JSON.stringify(flights));
-            res.end();
-        })
-    } else if (end === 'css') {
-        fs.readFile('client/stylesheet.css', function(err, data) {
-            console.log("trying to catch css file");
-            res.writeHead(200, {'Content-Type': contentType});
-            res.write(data);
-            res.end();
-        })
+        fileName = '/data.json';
+    } else if (fileName === '/') {
+        fileName = '/flights.html';
     }
-    else{
-        fs.readFile('client/flights.html', function(err, data) {
-            res.writeHead(200, {'Content-Type': contentType});
-            res.write(data);
-            res.end();
-        })
-    }
+
+    fs.readFile('client' + fileName, function(err, data) {
+        
+        if (err) {
+            if (err.code == 'ENOENT') {
+                res.writeHead(404, { 'Content-Type': 'text/plain' });
+                res.write('Resource no found');
+              } else {
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.write('Server Error');
+              }
+        } else {
+            if (end === 'json') {
+                const flights = JSON.parse(data);
+                let filtered = filterFlights(flights);
+                res.writeHead(200, {'Content-Type': contentType});
+                res.write(JSON.stringify(filtered));
+
+            } else {
+                res.writeHead(200, {'Content-Type': contentType});
+                res.write(data);
+            }
+        }
+        res.end();
+    })
+
 }).listen(8080, function () {
     console.log('Client is available at http://localhost:8080');
 });
 
+
 function checkEnd(fileName){
-    let index = fileName.lastIndexOf('.');
-    return fileName.substr(index+1);
+    let address = fileName.split('?')[0]; // flights.html
+    let index = address.lastIndexOf('.');
+    return address.substr(index+1);
+}
+
+function filterFlights(flights) {
+    let filtered = flights;
+
+    if (query.has('from')) {
+        filtered = flights.filter(flight => flight.from === query.get('from'));
+    } 
+    if (query.has('to')) {
+        filtered = flights.filter(flight => flight.to === query.get('to'));
+    }
+    return filtered;
 }
 
 function readUrl(end){

@@ -28,7 +28,6 @@
         fetch('/client/data.json')
         .then (response =>  { 
             console.log(response);
-            console.log('got response');
             return response.json();
         })
         .then ((flight) => {
