@@ -29,3 +29,7 @@ label[for='To'] {
     font-weight: bold;
     font-size: 16px;
 }
+
+body {
+    margin-left: 10px;
+}

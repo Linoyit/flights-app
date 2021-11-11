@@ -16,9 +16,8 @@ function parseQuery(query) { //'from=barcelona'
     console.log('params array:', params);
     for (let i = 0; i < params.length; i++) {
         let list = params[i].split('=');
-        if (list[1] !== ''){
-            result.set(list[0], list[1]); // { 'from':'barcelona', 'to':'rome'...  }
-        }
+        result.set(list[0], list[1]); // { 'from':'barcelona', 'to':'rome'...  }
+        
     }
     return result;
 }
@@ -34,6 +33,11 @@ function getFileName(fileName) {
 
 http.createServer(function (req, res) {
     let fileName = req.url;
+    // TODO(2): think about a better solution.
+    if (!fileName.includes('?') && checkEnd(fileName) === 'html') {
+        fileName += '?from=&to=';
+    }
+
     fileName = getFileName(fileName);
     let end = checkEnd(fileName);
     let contentType = readUrl(end);
@@ -83,10 +87,10 @@ function checkEnd(fileName){
 function filterFlights(flights) {
     let filtered = flights;
 
-    if (query.has('from')) {
+    if (query.has('from') && query.get('from') !== '') {
         filtered = filtered.filter(flight => flight.from === query.get('from'));
     } 
-    if (query.has('to')) {
+    if (query.has('to') && query.get('to') !== '') {
         filtered = filtered.filter(flight => flight.to === query.get('to'));
     }
     return filtered;
