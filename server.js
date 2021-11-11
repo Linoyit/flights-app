@@ -12,12 +12,21 @@ http.createServer(function (req, res) {
     
     if (end === 'json') {
         fs.readFile('client/data.json', function(err, data) {
+            
             const flights = JSON.parse(data);
             res.writeHead(200, {'Content-Type': contentType});
             res.write(JSON.stringify(flights));
             res.end();
         })
-    } else{
+    } else if (end === 'css') {
+        fs.readFile('client/stylesheet.css', function(err, data) {
+            console.log("trying to catch css file");
+            res.writeHead(200, {'Content-Type': contentType});
+            res.write(data);
+            res.end();
+        })
+    }
+    else{
         fs.readFile('client/flights.html', function(err, data) {
             res.writeHead(200, {'Content-Type': contentType});
             res.write(data);
@@ -40,7 +49,7 @@ function readUrl(end){
         case 'html': 
             return 'text/html';
         case 'css': 
-            return 'test/css';
+            return 'text/css';
         case 'js': 
             return 'text/javascript';
         default:

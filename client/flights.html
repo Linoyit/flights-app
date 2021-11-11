@@ -5,9 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Server Exercise</title>
-    <div></div>
+    <link rel="stylesheet" href="stylesheet.css">
+
 </head>
 <body>
+    <h1>Upcoming Flights: </h1>
+    <ul >
+        <li class="title">
+            <p id="id">Fligh ID</p>
+            <p id="from">From</p>
+            <p id="to">To</p>
+            <p id="departure">Departure</p>
+            <p id="arrival">Arrival</p>
+            <p id="by">By</p>
+        </li>
+    </ul>
+
     <ul id="output"></ul>
 
     <script>
@@ -20,9 +33,27 @@
         })
         .then ((flight) => {
             const output = document.getElementById('output');
-            output.innerHTML = flight.toString();
-            console.log(flight);
+            showResults(flight);
+
         })
+
+        function showResults(flights) {
+            let output = document.querySelector('#output');
+ 
+            const template = flights.map(flight => `
+            <li>
+                <div class="flight">
+                    <p id="id">${flight.id}</p>
+                    <p id="from">${flight.from}</p>
+                    <p id="to">${flight.to}</p>
+                    <p id="departure">${flight.departure}</p>
+                    <p id="arrival">${flight.arrival}</p>
+                    <p id="by">${flight.by}</p>
+                </div>
+            </li>
+            `);
+            output.innerHTML = template.join(' ');
+        }
     </script>
 </body>
 </html>

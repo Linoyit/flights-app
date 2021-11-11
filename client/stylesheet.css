@@ -1,3 +1,14 @@
-h2 {
+.flight, .title{
+    display: flex;
+}
+
+h1 {
     color: red;
+}
+
+p, .title {
+    margin: 5px;
+}
+li {
+    list-style: none;
 }
